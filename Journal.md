@@ -25,3 +25,18 @@ The decorators can also be stacked because every decorator is still a TextCompon
 The order of the decorators affects the result. If UpperCaseDecorator wraps BoldDecorator, the bold tags are already part of the text when the uppercase operation happens, so the tags can also become uppercase. If BoldDecorator wraps UpperCaseDecorator, the uppercase operation happens first and then the lowercase <b> tags are added afterward.
 
 One thing I learned from this phase is that the decorator does not need to know what type of object it is wrapping. It only needs to know that the object is a TextComponent.
+
+-----------------------------------------
+
+Phase 3 Journal
+Assembly & System Verification
+
+For Phase 3, I created the Main class to test the Decorator Pattern. I tested plain text, a single decorator, multiple decorators, and a combination of all three decorators.
+
+The program demonstrates the Open-Closed Principle because the existing classes do not need to be changed when adding new formatting behaviors. The TextComponent interface provides the common structure, while each decorator adds its own behavior.
+
+If I needed to add an UnderlineDecorator tomorrow, I would only need to create a new class that extends TextDecorator. I would not need to modify PlainText, TextComponent, BoldDecorator, ItalicDecorator, or `UpperCaseDecorator.
+
+For example, an UnderlineDecorator could add <u> tags around the result of the component it wraps. This means the system is open to adding new functionality but closed to modifying the existing classes.
+
+The biggest thing I learned from this project is how composition allows behaviors to be combined dynamically. Instead of creating a new class for every possible combination of formatting, I can stack decorators at runtime to get the behavior I want.
